@@ -18,7 +18,7 @@ func New(input *Input) *Controller {
 
 type GitHub interface {
 	ListReleases(ctx context.Context, owner, repo string) ([]*github.Release, error)
-	EditRelease(ctx context.Context, owner, repo string, releaseID int64, body string) error
+	EditRelease(ctx context.Context, owner, repo string, releaseID int64) error
 }
 
 type Input struct {

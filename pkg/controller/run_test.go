@@ -14,7 +14,7 @@ import (
 
 type mockGitHub struct {
 	listReleasesFunc func(ctx context.Context, owner, repo string) ([]*github.Release, error)
-	editReleaseFunc  func(ctx context.Context, owner, repo string, releaseID int64, body string) error
+	editReleaseFunc  func(ctx context.Context, owner, repo string, releaseID int64) error
 }
 
 func (m *mockGitHub) ListReleases(ctx context.Context, owner, repo string) ([]*github.Release, error) {
@@ -24,14 +24,14 @@ func (m *mockGitHub) ListReleases(ctx context.Context, owner, repo string) ([]*g
 	return nil, nil
 }
 
-func (m *mockGitHub) EditRelease(ctx context.Context, owner, repo string, releaseID int64, body string) error {
+func (m *mockGitHub) EditRelease(ctx context.Context, owner, repo string, releaseID int64) error {
 	if m.editReleaseFunc != nil {
-		return m.editReleaseFunc(ctx, owner, repo, releaseID, body)
+		return m.editReleaseFunc(ctx, owner, repo, releaseID)
 	}
 	return nil
 }
 
-func TestController_Run(t *testing.T) { //nolint:cyclop
+func TestController_Run(t *testing.T) {
 	t.Parallel()
 	logger := slog.Default()
 
@@ -105,21 +105,17 @@ func TestController_Run(t *testing.T) { //nolint:cyclop
 				listReleasesFunc: func(_ context.Context, _, _ string) ([]*github.Release, error) {
 					return []*github.Release{
 						{
-							TagName:     "v1.0.0",
-							DatabaseID:  123,
-							Immutable:   false,
-							IsDraft:     false,
-							Description: "Original description",
+							TagName:    "v1.0.0",
+							DatabaseID: 123,
+							Immutable:  false,
+							IsDraft:    false,
 						},
 					}, nil
 				},
-				editReleaseFunc: func(_ context.Context, _, _ string, releaseID int64, body string) error {
+				editReleaseFunc: func(_ context.Context, _, _ string, releaseID int64) error {
 					// This is a simplified check - in a real test you might want to track call order
 					if releaseID != 123 {
 						t.Errorf("unexpected releaseID: got %d, want 123", releaseID)
-					}
-					if body != "Original description\n" && body != "Original description" {
-						t.Errorf("unexpected body: got %q", body)
 					}
 					return nil
 				},
@@ -141,7 +137,7 @@ func TestController_Run(t *testing.T) { //nolint:cyclop
 			wantErrMessage: "list releases: list releases failed",
 		},
 		{
-			name: "edit release error on first call",
+			name: "edit release error",
 			input: &controller.InputRun{
 				RepoOwner: "owner",
 				RepoName:  "repo",
@@ -150,51 +146,19 @@ func TestController_Run(t *testing.T) { //nolint:cyclop
 				listReleasesFunc: func(_ context.Context, _, _ string) ([]*github.Release, error) {
 					return []*github.Release{
 						{
-							TagName:     "v1.0.0",
-							DatabaseID:  123,
-							Immutable:   false,
-							IsDraft:     false,
-							Description: "Original description",
+							TagName:    "v1.0.0",
+							DatabaseID: 123,
+							Immutable:  false,
+							IsDraft:    false,
 						},
 					}, nil
 				},
-				editReleaseFunc: func(_ context.Context, _, _ string, _ int64, body string) error {
-					if body == "Original description\n" {
-						return errors.New("edit release failed")
-					}
-					return nil
+				editReleaseFunc: func(_ context.Context, _, _ string, _ int64) error {
+					return errors.New("edit release failed")
 				},
 			},
 			wantErr:        true,
-			wantErrMessage: "append a newline to the description of release: edit release failed",
-		},
-		{
-			name: "edit release error on second call",
-			input: &controller.InputRun{
-				RepoOwner: "owner",
-				RepoName:  "repo",
-			},
-			mockGitHub: &mockGitHub{
-				listReleasesFunc: func(_ context.Context, _, _ string) ([]*github.Release, error) {
-					return []*github.Release{
-						{
-							TagName:     "v1.0.0",
-							DatabaseID:  123,
-							Immutable:   false,
-							IsDraft:     false,
-							Description: "Original description",
-						},
-					}, nil
-				},
-				editReleaseFunc: func(_ context.Context, _, _ string, _ int64, body string) error {
-					if body == "Original description" {
-						return errors.New("edit release failed")
-					}
-					return nil
-				},
-			},
-			wantErr:        true,
-			wantErrMessage: "remove a newline from the description of release: edit release failed",
+			wantErrMessage: "update the release: edit release failed",
 		},
 		{
 			name: "multiple mutable releases",
@@ -206,29 +170,26 @@ func TestController_Run(t *testing.T) { //nolint:cyclop
 				listReleasesFunc: func(_ context.Context, _, _ string) ([]*github.Release, error) {
 					return []*github.Release{
 						{
-							TagName:     "v1.0.0",
-							DatabaseID:  123,
-							Immutable:   false,
-							IsDraft:     false,
-							Description: "First release",
+							TagName:    "v1.0.0",
+							DatabaseID: 123,
+							Immutable:  false,
+							IsDraft:    false,
 						},
 						{
-							TagName:     "v2.0.0",
-							DatabaseID:  456,
-							Immutable:   true,
-							IsDraft:     false,
-							Description: "Second release (immutable)",
+							TagName:    "v2.0.0",
+							DatabaseID: 456,
+							Immutable:  true,
+							IsDraft:    false,
 						},
 						{
-							TagName:     "v3.0.0",
-							DatabaseID:  789,
-							Immutable:   false,
-							IsDraft:     false,
-							Description: "Third release",
+							TagName:    "v3.0.0",
+							DatabaseID: 789,
+							Immutable:  false,
+							IsDraft:    false,
 						},
 					}, nil
 				},
-				editReleaseFunc: func(_ context.Context, _, _ string, releaseID int64, _ string) error {
+				editReleaseFunc: func(_ context.Context, _, _ string, releaseID int64) error {
 					// Should only be called for releases 123 and 789, not 456
 					if releaseID != 123 && releaseID != 789 {
 						t.Errorf("unexpected releaseID: got %d, should only edit 123 or 789", releaseID)
@@ -272,7 +233,6 @@ func TestController_Run_EditReleaseCallOrder(t *testing.T) {
 
 	type call struct {
 		ReleaseID int64
-		Body      string
 	}
 
 	var calls []call
@@ -281,18 +241,16 @@ func TestController_Run_EditReleaseCallOrder(t *testing.T) {
 		listReleasesFunc: func(_ context.Context, _, _ string) ([]*github.Release, error) {
 			return []*github.Release{
 				{
-					TagName:     "v1.0.0",
-					DatabaseID:  123,
-					Immutable:   false,
-					IsDraft:     false,
-					Description: "Test description",
+					TagName:    "v1.0.0",
+					DatabaseID: 123,
+					Immutable:  false,
+					IsDraft:    false,
 				},
 			}, nil
 		},
-		editReleaseFunc: func(_ context.Context, _, _ string, releaseID int64, body string) error {
+		editReleaseFunc: func(_ context.Context, _, _ string, releaseID int64) error {
 			calls = append(calls, call{
 				ReleaseID: releaseID,
-				Body:      body,
 			})
 			return nil
 		},
@@ -313,11 +271,6 @@ func TestController_Run_EditReleaseCallOrder(t *testing.T) {
 	expectedCalls := []call{
 		{
 			ReleaseID: 123,
-			Body:      "Test description\n",
-		},
-		{
-			ReleaseID: 123,
-			Body:      "Test description",
 		},
 	}
 

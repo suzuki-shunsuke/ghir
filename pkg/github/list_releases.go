@@ -20,7 +20,6 @@ query($owner: String!, $repo: String!) {
         isDraft
         immutable
         tagName
-        description
       }
     }
   }
@@ -54,11 +53,10 @@ type PageInfo struct {
 }
 
 type Release struct {
-	Description string `json:"description"`
-	Immutable   bool   `json:"immutable"`
-	IsDraft     bool   `json:"isDraft"`
-	TagName     string `json:"tagName"`
-	DatabaseID  int64  `json:"databaseId"`
+	Immutable  bool   `json:"immutable"`
+	IsDraft    bool   `json:"isDraft"`
+	TagName    string `json:"tagName"`
+	DatabaseID int64  `json:"databaseId"`
 }
 
 func (c *Client) ListReleases(ctx context.Context, owner, repo string) ([]*Release, error) {

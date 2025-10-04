@@ -42,12 +42,9 @@ func (c *Controller) Run(ctx context.Context, logger *slog.Logger, input *InputR
 	}
 	logger.Info("found mutable releases", "count", len(rs))
 	for _, release := range rs {
-		logger.Info("editing release description to make the release immutable", "tag", release.TagName, "release_id", release.DatabaseID)
-		if err := c.input.GitHub.EditRelease(ctx, input.RepoOwner, input.RepoName, release.DatabaseID, release.Description+"\n"); err != nil {
-			return fmt.Errorf("append a newline to the description of release: %w", slogerr.With(err, "tag", release.TagName, "release_id", release.DatabaseID))
-		}
-		if err := c.input.GitHub.EditRelease(ctx, input.RepoOwner, input.RepoName, release.DatabaseID, release.Description); err != nil {
-			return fmt.Errorf("remove a newline from the description of release: %w", slogerr.With(err, "tag", release.TagName, "release_id", release.DatabaseID))
+		logger.Info("update the release to make it immutable", "tag", release.TagName, "release_id", release.DatabaseID)
+		if err := c.input.GitHub.EditRelease(ctx, input.RepoOwner, input.RepoName, release.DatabaseID); err != nil {
+			return fmt.Errorf("update the release: %w", slogerr.With(err, "tag", release.TagName, "release_id", release.DatabaseID))
 		}
 	}
 	return nil
