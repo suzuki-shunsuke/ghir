@@ -21,7 +21,7 @@ Coming soon.
 1. Run ghir
 
 ```sh
-ghir [-log-level <debug|info|warn|error>] [-enable-ghtkn] <repo full name>
+ghir [--log-level <debug|info|warn|error>] [--enable-ghtkn] <repo full name>
 ```
 
 e.g.
