@@ -39,7 +39,7 @@ func newHTTPClient(ctx context.Context, logger *slog.Logger, input *InputNew) (*
 	if err != nil {
 		return nil, err
 	}
-	return MakeRetryable(oauth2.NewClient(ctx, ts), logger), nil
+	return makeRetryable(oauth2.NewClient(ctx, ts), logger), nil
 }
 
 func newTokenSource(logger *slog.Logger, input *InputNew) (oauth2.TokenSource, error) {
@@ -55,7 +55,7 @@ func newTokenSource(logger *slog.Logger, input *InputNew) (oauth2.TokenSource, e
 	return nil, errors.New("either GHTKNEnabled or AccessToken must be set")
 }
 
-func MakeRetryable(client *http.Client, logger *slog.Logger) *http.Client {
+func makeRetryable(client *http.Client, logger *slog.Logger) *http.Client {
 	c := retryablehttp.NewClient()
 	c.HTTPClient = client
 	c.Logger = logger
