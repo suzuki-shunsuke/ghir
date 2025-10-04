@@ -1,0 +1,2 @@
+packages:
+  - name: mvdan/gofumpt@v0.9.1
