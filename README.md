@@ -1,5 +1,7 @@
 # ghir (GitHub Immutable Releases)
 
+[Install](INSTALL.md)
+
 ghir is a CLI making past GitHub Releases immutable.
 
 About GitHub Immutable Releases, please see the following links:
@@ -10,10 +12,6 @@ About GitHub Immutable Releases, please see the following links:
 Immutable Releases protect your software supply chain by preventing any changes to released assets.
 While enabling Immutable Releases is straightforward, previously created releases remain vulnerable.
 ghir is a CLI tool that secures your past releases by making them immutable.
-
-## Install
-
-Coming soon.
 
 ## How To Use
 
@@ -54,7 +52,7 @@ Or
 export GHIR_ENABLE_GHTKN=true
 ```
 
-## How It works
+## How It Works
 
 1. List GitHub Releases and get their descriptions by GitHub API
 1. Exclude draft releases and immutable releases
