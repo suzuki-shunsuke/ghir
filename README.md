@@ -54,6 +54,14 @@ Or
 export GHIR_ENABLE_GHTKN=true
 ```
 
+## How It works
+
+1. List GitHub Releases and get their descriptions by GitHub API
+1. Exclude draft releases and immutable releases
+1. Edit release description temporarily by GitHub API to make all releases immutable
+   1. Add a newline to the release description
+   2. Revert the change immediately
+
 ## LICENSE
 
 [MIT](LICENSE)
