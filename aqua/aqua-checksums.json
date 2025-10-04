@@ -26,83 +26,83 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/crate-ci/typos/v1.36.2/typos-v1.36.2-aarch64-apple-darwin.tar.gz",
-      "checksum": "C784CDB37D9BCFE347A161889EDB28BB07E24FE5828BAC14BDD42A071EA6C983",
+      "id": "github_release/github.com/crate-ci/typos/v1.37.2/typos-v1.37.2-aarch64-apple-darwin.tar.gz",
+      "checksum": "D5F2A924D43F5BBDA0E599D1EF5B6E0053FAD14EB288CC9D6397EC859C6549BD",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/crate-ci/typos/v1.36.2/typos-v1.36.2-aarch64-unknown-linux-musl.tar.gz",
-      "checksum": "2259A6CB7F22271B928F7AF9205045E46EAD98004A0757DF87916F91D4E6B35C",
+      "id": "github_release/github.com/crate-ci/typos/v1.37.2/typos-v1.37.2-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "5819113B4AA7F3766A99DB24069090FA5F4A2E9C52B364CE6B64523C4DF04267",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/crate-ci/typos/v1.36.2/typos-v1.36.2-x86_64-apple-darwin.tar.gz",
-      "checksum": "07ED2A25BE9D1CFEDE6AAA93B7758FDC939530C454EFFF35CF4E6CA51F0B12F2",
+      "id": "github_release/github.com/crate-ci/typos/v1.37.2/typos-v1.37.2-x86_64-apple-darwin.tar.gz",
+      "checksum": "C6B6C09311A6D39F6258E45339D89B607529374CE1D38A50A13658C346E8D6DF",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/crate-ci/typos/v1.36.2/typos-v1.36.2-x86_64-pc-windows-msvc.zip",
-      "checksum": "7079D16D4D19F973E6F8D45F61EA53C3C7D0D73285D85D5B180D1E384EB0AE12",
+      "id": "github_release/github.com/crate-ci/typos/v1.37.2/typos-v1.37.2-x86_64-pc-windows-msvc.zip",
+      "checksum": "2D0A3BFCCCF8A8D8F851FFA62417ECBBF391824A792108E231C64D3F5E2BDE5C",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/crate-ci/typos/v1.36.2/typos-v1.36.2-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "D255F509ACA7D43A50854CDC5EA94480B13918459992E3B5F2D0D8C4EADDDB49",
+      "id": "github_release/github.com/crate-ci/typos/v1.37.2/typos-v1.37.2-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "FF7C441E454358DAE4DE860277809E16A1FFABEB7D62098A0F17A33CFDB4E43A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/golangci/golangci-lint/v2.4.0/golangci-lint-2.4.0-darwin-amd64.tar.gz",
-      "checksum": "7904CE63F79DB44934939CF7A063086EA0EA98E9B19EBA0A9D52CCDD0D21951C",
+      "id": "github_release/github.com/golangci/golangci-lint/v2.5.0/golangci-lint-2.5.0-darwin-amd64.tar.gz",
+      "checksum": "A7E684872B00637D642D088DDE783C1B871161A92678FCF13D07ABE6B5C32E36",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/golangci/golangci-lint/v2.4.0/golangci-lint-2.4.0-darwin-arm64.tar.gz",
-      "checksum": "CD4DD53FA09B6646BAFF5FD22B8C64D91DB02C21C7496DF27992D75D34FEEC59",
+      "id": "github_release/github.com/golangci/golangci-lint/v2.5.0/golangci-lint-2.5.0-darwin-arm64.tar.gz",
+      "checksum": "0B3CBDC2A2472F60B538EBCCB1B2E1AE5D938A051C010591AA68C6EFD3706672",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/golangci/golangci-lint/v2.4.0/golangci-lint-2.4.0-linux-amd64.tar.gz",
-      "checksum": "FAE792524C04424C0AC369F5B8076F04B45CF29FC945A370E55D369A8DC11840",
+      "id": "github_release/github.com/golangci/golangci-lint/v2.5.0/golangci-lint-2.5.0-linux-amd64.tar.gz",
+      "checksum": "C77313A77E19B06123962C411D9943CC0D092BBEC76B956104D18964E274902E",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/golangci/golangci-lint/v2.4.0/golangci-lint-2.4.0-linux-arm64.tar.gz",
-      "checksum": "70AC11F55B80EC78FD3A879249CC9255121B8DFD7F7ED4FC46ED137F4ABF17E7",
+      "id": "github_release/github.com/golangci/golangci-lint/v2.5.0/golangci-lint-2.5.0-linux-arm64.tar.gz",
+      "checksum": "48693A98A7F4556D1117300AAE240D0FE483DF8D6F36DFABA56504626101A66E",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/golangci/golangci-lint/v2.4.0/golangci-lint-2.4.0-windows-amd64.zip",
-      "checksum": "003112F7A56746FEAABF20B744054BF9ACDF900C9E77176383623C4B1D76AAA9",
+      "id": "github_release/github.com/golangci/golangci-lint/v2.5.0/golangci-lint-2.5.0-windows-amd64.zip",
+      "checksum": "8D37563C2549E38135EAC46E778164D2C5B1E96B9211F2087814D74CA0F358A8",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/golangci/golangci-lint/v2.4.0/golangci-lint-2.4.0-windows-arm64.zip",
-      "checksum": "DC0C2092AF5D47FC2CD31A1DFE7B4C7E765FAB22DE98BD21EF2FFCC53AD9F54F",
+      "id": "github_release/github.com/golangci/golangci-lint/v2.5.0/golangci-lint-2.5.0-windows-arm64.zip",
+      "checksum": "B08F2AC149428307A14D733772720C84893D17E0D1FF2506623B00E7246229B1",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/goreleaser/goreleaser/v2.12.1/goreleaser_Darwin_all.tar.gz",
-      "checksum": "680D9B4811CBBAFC479029C087EDE44D7F5B457702427F40AD3976ED22D55A57",
+      "id": "github_release/github.com/goreleaser/goreleaser/v2.12.5/goreleaser_Darwin_all.tar.gz",
+      "checksum": "5D6858831E18918F6A86D2865288FDB4ECA93E1D99F63B2020003E09CD9A1E7F",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/goreleaser/goreleaser/v2.12.1/goreleaser_Linux_arm64.tar.gz",
-      "checksum": "1794690FAF948020593451ACEA5BFA9F947A984513CB01ED7E8CBF33F69851EA",
+      "id": "github_release/github.com/goreleaser/goreleaser/v2.12.5/goreleaser_Linux_arm64.tar.gz",
+      "checksum": "C22ED995C2F7D47DCF5696F4E3B66DAD3E656BCFCAB8E485CE236777FB0F2CAA",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/goreleaser/goreleaser/v2.12.1/goreleaser_Linux_x86_64.tar.gz",
-      "checksum": "CF22083B2702283A0BF29114F453DF8843679A343616F42FBD203BFFABC63862",
+      "id": "github_release/github.com/goreleaser/goreleaser/v2.12.5/goreleaser_Linux_x86_64.tar.gz",
+      "checksum": "7675261DBFB73BF80E3FCB6502373AECFDE67A7431F7EE888FB86407AFC9CA39",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/goreleaser/goreleaser/v2.12.1/goreleaser_Windows_arm64.zip",
-      "checksum": "F9EBBD8BF3C52EE2965109DC4DE2441362B21BFC86011C6C52D46FC22AAAF424",
+      "id": "github_release/github.com/goreleaser/goreleaser/v2.12.5/goreleaser_Windows_arm64.zip",
+      "checksum": "71D1D6529A59B57FB870C0C99C92ED4FE2BD6CC7B24D17590D435D6E6E94A167",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/goreleaser/goreleaser/v2.12.1/goreleaser_Windows_x86_64.zip",
-      "checksum": "40FA2213DCB3F1A3F626494F19DEECBEE943D6C4C28FB6BFE0E51806A655AC61",
+      "id": "github_release/github.com/goreleaser/goreleaser/v2.12.5/goreleaser_Windows_x86_64.zip",
+      "checksum": "1C058CB462CCBF1D07CBAB556867009912F5D6B6F98DDC208BBA80766B734DF4",
       "algorithm": "sha256"
     },
     {
@@ -191,28 +191,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sigstore/cosign/v2.6.0/cosign-darwin-amd64",
-      "checksum": "83B0FB42BC265E62AEF7DE49F4979B7957C9B7320D362A9F20046B2F823330F3",
+      "id": "github_release/github.com/sigstore/cosign/v2.6.1/cosign-darwin-amd64",
+      "checksum": "F1ED2787CC9648FD3C644FCB279E43F3F55DA63B788D69A527AA14AD97FFDCA1",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sigstore/cosign/v2.6.0/cosign-darwin-arm64",
-      "checksum": "DEA5B83B8B375B99AC803C7BDB1F798963DBEB47789CEB72153202E7F20E8D07",
+      "id": "github_release/github.com/sigstore/cosign/v2.6.1/cosign-darwin-arm64",
+      "checksum": "54047052CF46F40A5C3C95A510DB276E164BA77E096AEA1CA1B733F770359689",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sigstore/cosign/v2.6.0/cosign-linux-amd64",
-      "checksum": "EA5C65F99425D6CFBB5C4B5DE5DAC035F14D09131C1A0EA7C7FC32EAB39364F9",
+      "id": "github_release/github.com/sigstore/cosign/v2.6.1/cosign-linux-amd64",
+      "checksum": "064954C5D8C7E3B28188EEE5B1727B31C411550BC5FEFD41AA672D3C761D103A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sigstore/cosign/v2.6.0/cosign-linux-arm64",
-      "checksum": "E09684650882FD721ED22B716FFC399EE11426CD4D1C9B4FEC539CBA8BF46B86",
+      "id": "github_release/github.com/sigstore/cosign/v2.6.1/cosign-linux-arm64",
+      "checksum": "56A16480BDD56EC789ABAA65924402F6B92C0041F06885995853C05567B76F34",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sigstore/cosign/v2.6.0/cosign-windows-amd64.exe",
-      "checksum": "7BEB4DD1E19A72C328BBF7C0D7342D744EDBF5CBB082F227B2B76E04A21C16EF",
+      "id": "github_release/github.com/sigstore/cosign/v2.6.1/cosign-windows-amd64.exe",
+      "checksum": "049026DAE3246D6EA8201512EC3EFCE3AAB0C7F1D338D52E26C525DD02B418A0",
       "algorithm": "sha256"
     },
     {
@@ -276,36 +276,6 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/suzuki-shunsuke/ghir/v0.2.2/ghir_darwin_amd64.tar.gz",
-      "checksum": "25D0BB692DA0354338FA7CF136382EBC453C92CA9F60606AB85502BE55DC1BA1",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ghir/v0.2.2/ghir_darwin_arm64.tar.gz",
-      "checksum": "7F8B535522F4BEECA9E94A1C670568B8F0DE5C62286615540A857E5F5CDB0275",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ghir/v0.2.2/ghir_linux_amd64.tar.gz",
-      "checksum": "2C24F5BEAB7F52D8C2D965942C4F170E9D0EDA86C0041887BBC9D631ED85B1FF",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ghir/v0.2.2/ghir_linux_arm64.tar.gz",
-      "checksum": "D361CA358EB40B7D6C85798DEEFF83EE2B6C6176EC204267E30AFC8690C77091",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ghir/v0.2.2/ghir_windows_amd64.zip",
-      "checksum": "913AD8AF786AFFD19DE81EF9452C8B2081DFE1CCC05166C695AE5C36813A1531",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/suzuki-shunsuke/ghir/v0.2.2/ghir_windows_arm64.zip",
-      "checksum": "9497BD2A1CE4D3560C695A9A3451D67C35E87B4BE37703E6E9DA8E294D7A9323",
-      "algorithm": "sha256"
-    },
-    {
       "id": "github_release/github.com/suzuki-shunsuke/nllint/v0.1.2/nllint_darwin_amd64.tar.gz",
       "checksum": "EAD8931E0F048904E9D85E45E90F4E3BDF13B5D2EE5F2BCCC35782BC3EC4CD8F",
       "algorithm": "sha256"
@@ -366,8 +336,8 @@
       "algorithm": "sha256"
     },
     {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.413.0/registry.yaml",
-      "checksum": "5C379903B35B1456CD63E5EFA0A002F12C38620425294ADA8E63823F376C953CEDB0F1C1581C27F5B36DC5DFCD7226E55788557B844EB263BE5ABA756E6AB448",
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.420.0/registry.yaml",
+      "checksum": "70C8C521E87425A349A2DA12D07BFD9BAE78F6ADAB520910F543499120F8DA7B8F4EDA756AE656DE8CD16AFFC989CF67D87EFB2DC38A17CC5D3B3968210F33A9",
       "algorithm": "sha512"
     }
   ]
