@@ -119,6 +119,9 @@ func setEnableGHTKN(flag *Flag) error {
 		return nil
 	}
 	s := os.Getenv("GHIR_ENABLE_GHTKN")
+	if s == "" {
+		return nil
+	}
 	b, err := strconv.ParseBool(s)
 	if err != nil {
 		return fmt.Errorf("GHIR_ENABLE_GHTKN must be boolean: %w", err)
