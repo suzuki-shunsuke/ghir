@@ -80,7 +80,7 @@ func (c *Client) ListReleases(ctx context.Context, owner, repo string) ([]*Relea
 		if !pageInfo.HasNextPage {
 			return releases, nil
 		}
-		variables["cursor"] = pageInfo.EndCursor
+		variables["cursor"] = githubv4.String(pageInfo.EndCursor)
 	}
 	return releases, nil
 }
