@@ -54,9 +54,9 @@ export GHIR_ENABLE_GHTKN=true
 
 ## How It Works
 
-1. List GitHub Releases and get their descriptions by GitHub API
+1. Get GitHub Releases by GitHub API
 1. Exclude draft releases and immutable releases
-1. Update releases without parameters by GitHub API to make all releases immutable
+1. Update releases without any parameters by GitHub API to make all releases immutable
 
 ## LICENSE
 
