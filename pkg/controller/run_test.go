@@ -1,3 +1,4 @@
+//nolint:funlen
 package controller_test
 
 import (
@@ -101,7 +102,7 @@ func TestController_Run(t *testing.T) { //nolint:cyclop
 				RepoName:  "repo",
 			},
 			mockGitHub: &mockGitHub{
-				listReleasesFunc: func(ctx context.Context, owner, repo string) ([]*github.Release, error) {
+				listReleasesFunc: func(_ context.Context, _, _ string) ([]*github.Release, error) {
 					return []*github.Release{
 						{
 							TagName:     "v1.0.0",
@@ -246,20 +247,20 @@ func TestController_Run(t *testing.T) { //nolint:cyclop
 				GitHub: tt.mockGitHub,
 			})
 
-			err := ctrl.Run(t.Context(), logger, tt.input)
-
-			if tt.wantErr {
-				if err == nil {
-					t.Errorf("Controller.Run() error = nil, wantErr %v", tt.wantErr)
+			if err := ctrl.Run(t.Context(), logger, tt.input); err != nil {
+				if !tt.wantErr {
+					t.Error(err)
 					return
 				}
 				if tt.wantErrMessage != "" && err.Error() != tt.wantErrMessage {
 					t.Errorf("Controller.Run() error = %v, wantErrMessage %v", err.Error(), tt.wantErrMessage)
 				}
-			} else {
-				if err != nil {
-					t.Errorf("Controller.Run() error = %v, wantErr %v", err, tt.wantErr)
-				}
+				return
+			}
+
+			if tt.wantErr {
+				t.Errorf("Controller.Run() error = nil, wantErr %v", tt.wantErr)
+				return
 			}
 		})
 	}
