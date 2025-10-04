@@ -1,4 +1,4 @@
-# ghir
+# ghir (GitHub Immutable Releases)
 
 ghir is a CLI making past GitHub Releases immutable.
 
