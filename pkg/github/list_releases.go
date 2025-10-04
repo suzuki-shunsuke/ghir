@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/google/go-github/v75/github"
 	"github.com/shurcooL/githubv4"
 )
 
@@ -64,11 +63,6 @@ type Release struct {
 
 func (c *Client) ListReleases(ctx context.Context, owner, repo string) ([]*Release, error) {
 	// https://docs.github.com/en/graphql/reference/objects#release
-	// description
-	// immutable
-	// isDraft
-	// tagName
-	// id
 	var releases []*Release
 	var cursor string
 	variables := map[string]any{
@@ -89,18 +83,4 @@ func (c *Client) ListReleases(ctx context.Context, owner, repo string) ([]*Relea
 		variables["cursor"] = pageInfo.EndCursor
 	}
 	return releases, nil
-}
-
-type InputEditRelease struct {
-	ID int64
-}
-
-func (c *Client) EditRelease(ctx context.Context, owner, repo string, id int64, description string) error {
-	// GraphQL API does not support updating a release.
-	// https://docs.github.com/en/graphql/reference/mutations
-	// https://pkg.go.dev/github.com/google/go-github/v75/github#RepositoriesService.EditRelease
-	_, _, err := c.repos.EditRelease(ctx, owner, repo, id, &github.RepositoryRelease{
-		Body: github.Ptr(description),
-	})
-	return err //nolint:wrapcheck
 }
