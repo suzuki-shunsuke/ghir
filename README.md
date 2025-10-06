@@ -43,7 +43,7 @@ Environment Variables
 Or you can also use [ghtkn integration](https://github.com/suzuki-shunsuke/ghtkn).
 
 ```sh
-ghir -enable-ghtkn <repo>
+ghir --enable-ghtkn <repo>
 ```
 
 Or
@@ -57,6 +57,12 @@ export GHIR_ENABLE_GHTKN=true
 1. Get GitHub Releases by GitHub API
 1. Exclude draft releases and immutable releases
 1. Update releases without any parameters by GitHub API to make all releases immutable
+
+## Note
+
+Even if ghir makes releases immutable, release attestations aren't created.
+I sent a feature request.
+[For more details, please see the discussion.](https://github.com/orgs/community/discussions/171210#discussioncomment-14601356)
 
 ## LICENSE
 
