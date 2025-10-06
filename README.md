@@ -60,8 +60,8 @@ export GHIR_ENABLE_GHTKN=true
 
 ## Note
 
-Even if ghir makes releases immutable, release attestations aren't created.
-I sent a feature request.
+Release attestations aren't created if releases were created before April 2025.
+I sent a feature request to GitHub.
 [For more details, please see the discussion.](https://github.com/orgs/community/discussions/171210#discussioncomment-14601356)
 
 ## LICENSE
