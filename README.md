@@ -58,6 +58,25 @@ export GHIR_ENABLE_GHTKN=true
 1. Exclude draft releases and immutable releases
 1. Update releases without any parameters by GitHub API to make all releases immutable
 
+## ProTip: Run ghir for multiple repositories
+ghir alone can only be executed in a single repository.
+
+However, by combining other tools, you can run ghir against multiple repositories.
+
+### Example 1: use repository list file
+```sh
+cat repos.txt
+username_or_orgname/foo
+username_or_orgname/bar
+
+cat repos.txt | xargs -n 1 ghir
+```
+
+### Example 2: use [gh repo list](https://cli.github.com/manual/gh_repo_list)
+```sh
+gh repo list <username_or_orgname> --source --no-archived --json nameWithOwner --template '{{range .}}{{.nameWithOwner}}{{"\n"}}{{end}}' --limit 100 | xargs -n 1 ghir
+```
+
 ## Note
 
 Release attestations aren't created if releases were created before April 2025.
