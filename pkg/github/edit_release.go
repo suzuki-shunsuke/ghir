@@ -3,7 +3,7 @@ package github
 import (
 	"context"
 
-	"github.com/google/go-github/v75/github"
+	"github.com/google/go-github/v76/github"
 )
 
 func (c *Client) EditRelease(ctx context.Context, owner, repo string, id int64) error {
