@@ -51,8 +51,6 @@ github.com/suzuki-shunsuke/go-retryablehttp v0.7.8-2 h1:oOeDLYiW+X/8XC2/Wu3U3rQ0
 github.com/suzuki-shunsuke/go-retryablehttp v0.7.8-2/go.mod h1:fRVZ62p4iY8BxyyhZQ++grjQIDzWtRK02mHQapxm4Kk=
 github.com/suzuki-shunsuke/go-stdutil v0.0.1 h1:b5SZ4rLFHgO6MBRlZEt4ud4+YaNobzsqkXM3vRN4BJU=
 github.com/suzuki-shunsuke/go-stdutil v0.0.1/go.mod h1:k/SZUeN5RkfUWGLTCPLMagz7k1RexZ227aauyxLAckM=
-github.com/suzuki-shunsuke/slog-error v0.2.0 h1:XghEeRu6nchSxvzbqT5PpZgk5Dd6ZJSxx0VFSBMQysU=
-github.com/suzuki-shunsuke/slog-error v0.2.0/go.mod h1:w45QyO2G0uiEuo9hhrcLqqRl3hmYon9jGgq9CrCxxOY=
 github.com/suzuki-shunsuke/slog-error v0.2.1 h1:zcWOEo451RWmgusiONt/GueyvkTL7n4qA0ZJ3gTEjbA=
 github.com/suzuki-shunsuke/slog-error v0.2.1/go.mod h1:w45QyO2G0uiEuo9hhrcLqqRl3hmYon9jGgq9CrCxxOY=
 github.com/zalando/go-keyring v0.2.6 h1:r7Yc3+H+Ux0+M72zacZoItR3UDxeWfKTcabvkI8ua9s=
