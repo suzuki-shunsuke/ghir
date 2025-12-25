@@ -79,12 +79,6 @@ cat repos.txt | xargs -n 1 ghir
 gh repo list <username_or_orgname> --source --no-archived --json nameWithOwner --template '{{range .}}{{.nameWithOwner}}{{"\n"}}{{end}}' --limit 100 | xargs -n 1 ghir
 ```
 
-## Note
-
-Release attestations aren't created if releases were created before April 2025.
-I sent a feature request to GitHub.
-[For more details, please see the discussion.](https://github.com/orgs/community/discussions/171210#discussioncomment-14601356)
-
 ## LICENSE
 
 [MIT](LICENSE)
