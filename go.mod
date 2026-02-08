@@ -12,7 +12,7 @@ require (
 	github.com/suzuki-shunsuke/go-retryablehttp v0.7.8-2
 	github.com/suzuki-shunsuke/go-stdutil v0.0.1
 	github.com/suzuki-shunsuke/slog-error v0.2.2
-	golang.org/x/oauth2 v0.34.0
+	golang.org/x/oauth2 v0.35.0
 )
 
 require (
