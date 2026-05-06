@@ -12,6 +12,12 @@ import (
 	"github.com/suzuki-shunsuke/ghir/pkg/github"
 )
 
+const (
+	testOwner = "owner"
+	testRepo  = "repo"
+	testTagV1 = "v1.0.0"
+)
+
 type mockGitHub struct {
 	listReleasesFunc func(ctx context.Context, owner, repo string) ([]*github.Release, error)
 	editReleaseFunc  func(ctx context.Context, owner, repo string, releaseID int64) error
@@ -45,8 +51,8 @@ func TestController_Run(t *testing.T) {
 		{
 			name: "no releases found",
 			input: &controller.InputRun{
-				RepoOwner: "owner",
-				RepoName:  "repo",
+				RepoOwner: testOwner,
+				RepoName:  testRepo,
 			},
 			mockGitHub: &mockGitHub{
 				listReleasesFunc: func(_ context.Context, _, _ string) ([]*github.Release, error) {
@@ -58,14 +64,14 @@ func TestController_Run(t *testing.T) {
 		{
 			name: "all releases are immutable",
 			input: &controller.InputRun{
-				RepoOwner: "owner",
-				RepoName:  "repo",
+				RepoOwner: testOwner,
+				RepoName:  testRepo,
 			},
 			mockGitHub: &mockGitHub{
 				listReleasesFunc: func(_ context.Context, _, _ string) ([]*github.Release, error) {
 					return []*github.Release{
 						{
-							TagName:    "v1.0.0",
+							TagName:    testTagV1,
 							DatabaseID: 123,
 							Immutable:  true,
 							IsDraft:    false,
@@ -78,14 +84,14 @@ func TestController_Run(t *testing.T) {
 		{
 			name: "all releases are drafts",
 			input: &controller.InputRun{
-				RepoOwner: "owner",
-				RepoName:  "repo",
+				RepoOwner: testOwner,
+				RepoName:  testRepo,
 			},
 			mockGitHub: &mockGitHub{
 				listReleasesFunc: func(_ context.Context, _, _ string) ([]*github.Release, error) {
 					return []*github.Release{
 						{
-							TagName:    "v1.0.0",
+							TagName:    testTagV1,
 							DatabaseID: 123,
 							Immutable:  false,
 							IsDraft:    true,
@@ -98,14 +104,14 @@ func TestController_Run(t *testing.T) {
 		{
 			name: "successfully edit mutable release",
 			input: &controller.InputRun{
-				RepoOwner: "owner",
-				RepoName:  "repo",
+				RepoOwner: testOwner,
+				RepoName:  testRepo,
 			},
 			mockGitHub: &mockGitHub{
 				listReleasesFunc: func(_ context.Context, _, _ string) ([]*github.Release, error) {
 					return []*github.Release{
 						{
-							TagName:    "v1.0.0",
+							TagName:    testTagV1,
 							DatabaseID: 123,
 							Immutable:  false,
 							IsDraft:    false,
@@ -125,8 +131,8 @@ func TestController_Run(t *testing.T) {
 		{
 			name: "list releases error",
 			input: &controller.InputRun{
-				RepoOwner: "owner",
-				RepoName:  "repo",
+				RepoOwner: testOwner,
+				RepoName:  testRepo,
 			},
 			mockGitHub: &mockGitHub{
 				listReleasesFunc: func(_ context.Context, _, _ string) ([]*github.Release, error) {
@@ -139,14 +145,14 @@ func TestController_Run(t *testing.T) {
 		{
 			name: "edit release error",
 			input: &controller.InputRun{
-				RepoOwner: "owner",
-				RepoName:  "repo",
+				RepoOwner: testOwner,
+				RepoName:  testRepo,
 			},
 			mockGitHub: &mockGitHub{
 				listReleasesFunc: func(_ context.Context, _, _ string) ([]*github.Release, error) {
 					return []*github.Release{
 						{
-							TagName:    "v1.0.0",
+							TagName:    testTagV1,
 							DatabaseID: 123,
 							Immutable:  false,
 							IsDraft:    false,
@@ -163,14 +169,14 @@ func TestController_Run(t *testing.T) {
 		{
 			name: "multiple mutable releases",
 			input: &controller.InputRun{
-				RepoOwner: "owner",
-				RepoName:  "repo",
+				RepoOwner: testOwner,
+				RepoName:  testRepo,
 			},
 			mockGitHub: &mockGitHub{
 				listReleasesFunc: func(_ context.Context, _, _ string) ([]*github.Release, error) {
 					return []*github.Release{
 						{
-							TagName:    "v1.0.0",
+							TagName:    testTagV1,
 							DatabaseID: 123,
 							Immutable:  false,
 							IsDraft:    false,
@@ -241,7 +247,7 @@ func TestController_Run_EditReleaseCallOrder(t *testing.T) {
 		listReleasesFunc: func(_ context.Context, _, _ string) ([]*github.Release, error) {
 			return []*github.Release{
 				{
-					TagName:    "v1.0.0",
+					TagName:    testTagV1,
 					DatabaseID: 123,
 					Immutable:  false,
 					IsDraft:    false,
@@ -261,8 +267,8 @@ func TestController_Run_EditReleaseCallOrder(t *testing.T) {
 	})
 
 	err := ctrl.Run(t.Context(), logger, &controller.InputRun{
-		RepoOwner: "owner",
-		RepoName:  "repo",
+		RepoOwner: testOwner,
+		RepoName:  testRepo,
 	})
 	if err != nil {
 		t.Fatalf("Controller.Run() error = %v", err)
