@@ -3,6 +3,7 @@ package github
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log/slog"
 	"net/http"
 
@@ -28,8 +29,12 @@ func New(ctx context.Context, logger *slog.Logger, input *InputNew) (*Client, er
 	if err != nil {
 		return nil, err
 	}
+	gh, err := github.NewClient(github.WithHTTPClient(httpClient))
+	if err != nil {
+		return nil, fmt.Errorf("create a GitHub client: %w", err)
+	}
 	return &Client{
-		repos: github.NewClient(httpClient).Repositories,
+		repos: gh.Repositories,
 		v4:    githubv4.NewClient(httpClient),
 	}, nil
 }
