@@ -20,8 +20,7 @@ type Client struct {
 }
 
 type InputNew struct {
-	GHTKNEnabled bool
-	AccessToken  string
+	AccessToken string
 }
 
 func New(ctx context.Context, logger *slog.Logger, input *InputNew) (*Client, error) {
@@ -48,16 +47,27 @@ func newHTTPClient(ctx context.Context, logger *slog.Logger, input *InputNew) (*
 }
 
 func newTokenSource(logger *slog.Logger, input *InputNew) (oauth2.TokenSource, error) {
-	if input.GHTKNEnabled {
-		client := ghtkn.New()
-		return client.TokenSource(logger, &ghtkn.InputGet{}), nil
-	}
 	if input.AccessToken != "" {
 		return oauth2.StaticTokenSource(
 			&oauth2.Token{AccessToken: input.AccessToken},
 		), nil
 	}
-	return nil, errors.New("either GHTKNEnabled or AccessToken must be set")
+	ghtknEnabled, err := ghtkn.Enabled(&ghtkn.InputEnabled{
+		Envs: []string{
+			"GHIR_ENABLE_GHTKN",
+		},
+	})
+	if err != nil {
+		return nil, fmt.Errorf("check if ghtkn is enabled: %w", err)
+	}
+	if !ghtknEnabled {
+		return nil, errors.New("either GHTKNEnabled or AccessToken must be set")
+	}
+	client, err := ghtkn.New()
+	if err != nil {
+		return nil, fmt.Errorf("create a ghtkn client: %w", err)
+	}
+	return client.TokenSource(logger, &ghtkn.InputGet{}), nil
 }
 
 func makeRetryable(client *http.Client, logger *slog.Logger) *http.Client {

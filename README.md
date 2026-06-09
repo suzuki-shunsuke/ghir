@@ -21,7 +21,7 @@ ghir is a CLI tool that secures your past releases by making them immutable.
 1. Run ghir
 
 ```sh
-ghir [--log-level <debug|info|warn|error>] [--enable-ghtkn] <repo full name>
+ghir [--log-level <debug|info|warn|error>] <repo full name>
 ```
 
 e.g.
@@ -45,13 +45,13 @@ Environment Variables
 Or you can also use [ghtkn integration](https://github.com/suzuki-shunsuke/ghtkn).
 
 ```sh
-ghir --enable-ghtkn <repo>
+export GHIR_ENABLE_GHTKN=true
 ```
 
 Or
 
 ```sh
-export GHIR_ENABLE_GHTKN=true
+export GHTKN_ENABLE=true
 ```
 
 ## How It Works

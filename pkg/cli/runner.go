@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"log/slog"
 	"os"
-	"strconv"
 	"strings"
 
 	"github.com/spf13/pflag"
@@ -51,18 +50,13 @@ func Run(ctx context.Context, logger *slog.Logger, logLevel *slog.LevelVar, ldFl
 		return err
 	}
 
-	if err := setEnableGHTKN(flag); err != nil {
-		return err
-	}
-
 	repoOwner, repoName, err := validateRepo(flag.Args)
 	if err != nil {
 		return err
 	}
 
 	gh, err := github.New(ctx, logger, &github.InputNew{
-		GHTKNEnabled: flag.EnableGHTKN,
-		AccessToken:  getGitHubToken(),
+		AccessToken: getGitHubToken(),
 	})
 	if err != nil {
 		return fmt.Errorf("create GitHub client: %w", err)
@@ -114,35 +108,17 @@ func setLogLevel(logLevel *slog.LevelVar, flag *Flag) error {
 	return nil
 }
 
-func setEnableGHTKN(flag *Flag) error {
-	if flag.EnableGHTKN {
-		return nil
-	}
-	s := os.Getenv("GHIR_ENABLE_GHTKN")
-	if s == "" {
-		return nil
-	}
-	b, err := strconv.ParseBool(s)
-	if err != nil {
-		return fmt.Errorf("GHIR_ENABLE_GHTKN must be boolean: %w", err)
-	}
-	flag.EnableGHTKN = b
-	return nil
-}
-
 type Flag struct {
-	LogLevel    string
-	EnableGHTKN bool
-	Help        bool
-	Version     bool
-	Args        []string
+	LogLevel string
+	Help     bool
+	Version  bool
+	Args     []string
 }
 
 const envLogLevel = "GHIR_LOG_LEVEL"
 
 func parseFlags(f *Flag) {
 	pflag.StringVar(&f.LogLevel, "log-level", "", "log level (debug, info, warn, error)")
-	pflag.BoolVar(&f.EnableGHTKN, "enable-ghtkn", false, "enable the integration with ghtkn")
 	pflag.BoolVarP(&f.Help, "help", "h", false, "show help")
 	pflag.BoolVarP(&f.Version, "version", "v", false, "show version")
 	pflag.Parse()
