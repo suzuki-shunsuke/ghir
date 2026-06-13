@@ -99,18 +99,16 @@ aqua g -i sigstore/cosign
 ```
 
 ```sh
-version=v0.0.1
+version=v1.0.0
 checksum_file="ghir_checksums.txt"
 asset=ghir_darwin_arm64.tar.gz
 gh release download "$version" \
   -R suzuki-shunsuke/ghir \
   -p "$asset" \
   -p "$checksum_file" \
-  -p "${checksum_file}.pem" \
-  -p "${checksum_file}.sig"
+  -p "${checksum_file}.sigstore.json"
 cosign verify-blob \
-  --signature "${checksum_file}.sig" \
-  --certificate "${checksum_file}.pem" \
+  --bundle "${checksum_file}.sigstore.json" \
   --certificate-identity-regexp 'https://github\.com/suzuki-shunsuke/go-release-workflow/\.github/workflows/release\.yaml@.*' \
   --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
   "$checksum_file"
