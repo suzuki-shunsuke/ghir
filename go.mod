@@ -8,7 +8,7 @@ require (
 	github.com/lmittmann/tint v1.1.3
 	github.com/shurcooL/githubv4 v0.0.0-20240727222349-48295856cce7
 	github.com/spf13/pflag v1.0.10
-	github.com/suzuki-shunsuke/ghtkn-go-sdk v0.3.2
+	github.com/suzuki-shunsuke/ghtkn-go-sdk v0.3.3
 	github.com/suzuki-shunsuke/go-retryablehttp v0.7.8-2
 	github.com/suzuki-shunsuke/go-stdutil v0.0.1
 	github.com/suzuki-shunsuke/slog-error v0.2.2
