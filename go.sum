@@ -39,6 +39,8 @@ github.com/stretchr/testify v1.11.1 h1:7s2iGBzp5EwR7/aIZr8ao5+dra3wiQyKjjFuvgVKu
 github.com/stretchr/testify v1.11.1/go.mod h1:wZwfW3scLgRK+23gO65QZefKpKQRnfz6sD981Nm4B6U=
 github.com/suzuki-shunsuke/ghtkn-go-sdk v0.3.3 h1:a69EnQ/tPCMfwKI9jwZI3oxvFusGXTA/mNgXYLBwVYM=
 github.com/suzuki-shunsuke/ghtkn-go-sdk v0.3.3/go.mod h1:bTbYGLIP/9RW68CfUDVH8rnNs5LfjxRfGsKToRy8+lg=
+github.com/suzuki-shunsuke/ghtkn-go-sdk v0.4.1 h1:eY7zqLdbro8R9oO0JmfqAMB7hDl02a7tmEETH+FnhV8=
+github.com/suzuki-shunsuke/ghtkn-go-sdk v0.4.1/go.mod h1:SaFGGjbIt1znlORqwOeK51GR3oDAWbQ73g0q4AKFfDI=
 github.com/suzuki-shunsuke/go-exec v0.0.1 h1:xn/lvYnRQOujUd46ph6f6IT0gVJIC8+3liSZKOjNj44=
 github.com/suzuki-shunsuke/go-exec v0.0.1/go.mod h1:KstSwIiQTKY34wEurUcFyKkaJDogBr5E3xxfdkkzvb0=
 github.com/suzuki-shunsuke/go-retryablehttp v0.7.8-2 h1:oOeDLYiW+X/8XC2/Wu3U3rQ0hbindlFs0I8BYpHVA9Y=
