@@ -1,6 +1,6 @@
 module github.com/suzuki-shunsuke/ghir
 
-go 1.26.4
+go 1.26.5
 
 require (
 	github.com/google/go-cmp v0.7.0
