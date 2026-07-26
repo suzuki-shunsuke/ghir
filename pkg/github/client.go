@@ -7,7 +7,7 @@ import (
 	"log/slog"
 	"net/http"
 
-	"github.com/google/go-github/v88/github"
+	"github.com/google/go-github/v89/github"
 	"github.com/shurcooL/githubv4"
 	"github.com/suzuki-shunsuke/ghtkn-go-sdk/ghtkn"
 	"github.com/suzuki-shunsuke/go-retryablehttp"
@@ -78,7 +78,7 @@ func makeRetryable(client *http.Client, logger *slog.Logger) *http.Client {
 }
 
 type RepositoriesService interface {
-	EditRelease(ctx context.Context, owner, repo string, id int64, release *github.RepositoryRelease) (*github.RepositoryRelease, *github.Response, error)
+	UpdateRelease(ctx context.Context, owner, repo string, id int64, body github.UpdateReleaseRequest) (*github.RepositoryRelease, *github.Response, error)
 }
 
 type GraphQL interface {
