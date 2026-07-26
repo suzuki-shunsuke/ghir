@@ -78,7 +78,7 @@ func makeRetryable(client *http.Client, logger *slog.Logger) *http.Client {
 }
 
 type RepositoriesService interface {
-	EditRelease(ctx context.Context, owner, repo string, id int64, release *github.RepositoryRelease) (*github.RepositoryRelease, *github.Response, error)
+	UpdateRelease(ctx context.Context, owner, repo string, id int64, body github.UpdateReleaseRequest) (*github.RepositoryRelease, *github.Response, error)
 }
 
 type GraphQL interface {
