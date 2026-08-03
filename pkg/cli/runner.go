@@ -24,7 +24,7 @@ https://github.com/suzuki-shunsuke/ghir
 USAGE:
    ghir --help [-h] # Show this help
    ghir --version [-v] # Show version
-   ghir [--log-level <debug|info|warn|error>] [--enable-ghtkn] <owner>/<repo>
+   ghir [--log-level <debug|info|warn|error>] <owner>/<repo>
 
 VERSION:
    %s
@@ -33,7 +33,7 @@ VERSION:
 func Run(ctx context.Context, logger *slog.Logger, logLevel *slog.LevelVar, ldFlags *stdutil.LDFlags) error {
 	// GITHUB_TOKEN, GHIR_GITHUB_TOKEN
 	// GHIR_LOG_LEVEL -log-level
-	// GHIR_ENABLE_GHTKN -enable-ghtkn
+	// GHIR_ENABLE_GHTKN
 	flag := &Flag{}
 	parseFlags(flag)
 
