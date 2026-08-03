@@ -61,7 +61,7 @@ func newTokenSource(logger *slog.Logger, input *InputNew) (oauth2.TokenSource, e
 		return nil, fmt.Errorf("check if ghtkn is enabled: %w", err)
 	}
 	if !ghtknEnabled {
-		return nil, errors.New("either GHTKNEnabled or AccessToken must be set")
+		return nil, errors.New("no GitHub access token is available: set GHIR_GITHUB_TOKEN or GITHUB_TOKEN, or enable the ghtkn integration with GHIR_ENABLE_GHTKN=true")
 	}
 	client, err := ghtkn.New()
 	if err != nil {
