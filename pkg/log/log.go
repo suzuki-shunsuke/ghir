@@ -10,7 +10,7 @@ import (
 
 func New(w io.Writer, version string) (*slog.Logger, *slog.LevelVar) {
 	level := &slog.LevelVar{}
-	return slog.New(tint.NewHandler(w, &tint.Options{
+	return slog.New(tint.NewTextHandler(w, &tint.Options{
 		Level: level,
 	})).With("program", "ghir", "ghir_version", version), level
 }
