@@ -5,7 +5,7 @@ go 1.27.1
 require (
 	github.com/google/go-cmp v0.7.0
 	github.com/google/go-github/v92 v92.0.0
-	github.com/lmittmann/tint v1.2.0
+	github.com/lmittmann/tint v1.2.1
 	github.com/shurcooL/githubv4 v0.0.0-20240727222349-48295856cce7
 	github.com/spf13/pflag v1.0.10
 	github.com/suzuki-shunsuke/ghtkn-go-sdk v0.6.1
