@@ -7,7 +7,7 @@ require (
 	github.com/google/go-github/v93 v93.0.0
 	github.com/lmittmann/tint v1.2.1
 	github.com/shurcooL/githubv4 v0.0.0-20240727222349-48295856cce7
-	github.com/spf13/pflag v1.0.10
+	github.com/spf13/pflag v1.1.0
 	github.com/suzuki-shunsuke/ghtkn-go-sdk v0.6.1
 	github.com/suzuki-shunsuke/go-retryablehttp v0.7.8-2
 	github.com/suzuki-shunsuke/go-stdutil v0.0.1
